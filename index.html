@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Password Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div>
+                <h1>Password Generator</h1>
+                <p>Create a random password with your own settings</p>
+            </div>
+
+            <button
+                id="themeButton"
+                class="theme-button"
+                type="button"
+                aria-label="Toggle dark mode"
+                title="Toggle theme">
+                🌙
+            </button>
+
+        </header>
+
+
+        <!-- Password Display -->
+        <section class="password-card">
+
+            <div class="password-display">
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Generate a password"
+                    readonly
+                    aria-label="Generated password">
+
+                <button
+                    id="togglePasswordButton"
+                    type="button"
+                    title="Show or hide password"
+                    aria-label="Show or hide password">
+                    👁️
+                </button>
+
+                <button
+                    id="copyButton"
+                    type="button"
+                    title="Copy password"
+                    aria-label="Copy password">
+                    📋
+                </button>
+
+            </div>
+
+            <p id="copyMessage" class="copy-message" aria-live="polite"></p>
+
+        </section>
+
+
+        <!-- Strength -->
+        <section class="strength-section">
+
+            <div class="strength-header">
+                <span>Password Strength</span>
+                <span id="strengthText">-</span>
+            </div>
+
+            <div class="strength-bar">
+                <div
+                    id="strengthProgress"
+                    class="strength-progress">
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Settings -->
+        <section class="settings">
+
+            <!-- Length -->
+            <div class="setting-row">
+
+                <label for="length">
+                    Password Length
+                </label>
+
+                <span id="lengthValue">16</span>
+
+            </div>
+
+            <input
+                type="range"
+                id="length"
+                min="8"
+                max="64"
+                value="16">
+
+
+            <!-- Character Options -->
+            <div class="options-title">
+                Character Types
+            </div>
+
+            <div class="option-grid">
+
+                <label class="option">
+
+                    <input
+                        type="checkbox"
+                        id="uppercase"
+                        checked>
+
+                    <span>
+                        Uppercase (A-Z)
+                    </span>
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="checkbox"
+                        id="lowercase"
+                        checked>
+
+                    <span>
+                        Lowercase (a-z)
+                    </span>
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="checkbox"
+                        id="numbers"
+                        checked>
+
+                    <span>
+                        Numbers (0-9)
+                    </span>
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="checkbox"
+                        id="symbols"
+                        checked>
+
+                    <span>
+                        Symbols (!@#)
+                    </span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Advanced Options -->
+            <div class="options-title">
+                Advanced Options
+            </div>
+
+
+            <label class="option full-option">
+
+                <input
+                    type="checkbox"
+                    id="excludeAmbiguous">
+
+                <span>
+                    Exclude ambiguous characters
+                    <small>
+                        O, 0, I, l, 1
+                    </small>
+                </span>
+
+            </label>
+
+
+            <label class="option full-option">
+
+                <input
+                    type="checkbox"
+                    id="noDuplicates">
+
+                <span>
+                    Avoid duplicate characters
+                </span>
+
+            </label>
+
+        </section>
+
+
+        <!-- Error Message -->
+        <p
+            id="errorMessage"
+            class="error-message"
+            aria-live="polite">
+        </p>
+
+
+        <!-- Generate Button -->
+        <button
+            id="generateButton"
+            class="generate-button"
+            type="button">
+
+            🔄 Generate Password
+
+        </button>
+
+
+        <!-- Information -->
+        <p class="security-note">
+            🔒 Passwords are generated locally in your browser.
+        </p>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
